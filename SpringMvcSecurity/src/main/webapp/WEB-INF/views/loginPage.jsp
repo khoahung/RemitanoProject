@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <body onload='document.loginForm.username.focus();'>
 	<h3>Remitano Project Test</h3>
@@ -22,9 +23,8 @@
       <c:forEach var="movie" items="${movies}" >
             <tr>
             	<td>
-                	<iframe width="420" height="315"
-						src="${movie.getData()}">
-					</iframe>
+            		<c:set var = "urlYoutube" scope = "session" value = "${movie.getData()}?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"/>
+                	<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="788.54" height="443"  src="<c:out value = '${urlYoutube}'/>"></iframe>
 			    </td>
             </tr>
         </c:forEach>
